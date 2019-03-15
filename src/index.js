@@ -3,21 +3,6 @@ const { copy, ensureDir, existsSync } = require('fs-extra')
 const { validatePng, computeHash, getConfig, saveConfig } = require('./utils')
 const useIntermediateFolders = false
 
-console.log=(function() {
-  // log, log, its big its heavy its wood.
-  // represent the icon-factory
-
-  let log = console.log
-  return function () {
-    log.apply(console, arguments)
-    process.stdout.write(`★`)
-  }
-})()
-
-console.log('★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★')
-console.log(' [icon-factory] ★ The star means your icons are factory produced ★')
-console.log('★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★')
-
 /**
  * copy files from the intermediate folder to the your final destination
  * @param  {string} target the location of the intermediate folder
@@ -83,7 +68,7 @@ const initialize = async function(api, ctx, config) {
 
   /**
    * creating the icons in the given target folder.
-   * @returns {undefined}s
+   * @returns {undefined}
    */
   let processImagess = async function() {
     await iconfactory[modeName](source, target, minify, iconConfig.options[modeName])
